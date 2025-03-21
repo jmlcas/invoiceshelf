@@ -19,16 +19,16 @@ services:
       retries: 10
 
   invoiceshelf:
-    image: invoiceshelf/invoiceshelf:nightly
+    image: invoiceshelf/invoiceshelf:latest
     container_name: invoiceshelf
     ports:
-      - 90:80
+      - "90:80"
     volumes:
-      - ./invoiceshelf_mysql/data:/data
-      - ./invoiceshelf_mysql/conf:/conf
+      - ./invoiceshelf/data:/data
+      - ./invoiceshelf/conf:/conf
     environment:
       - PHP_TZ=Europe/Madrid
-      - TIMEZONE=UTC
+      - TIMEZONE=Europe/Madrid
       - APP_NAME=Laravel
       - APP_ENV=local
       - APP_DEBUG=true
